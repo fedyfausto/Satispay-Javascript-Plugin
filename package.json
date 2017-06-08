@@ -1,6 +1,6 @@
 {
   "name": "satispay-javascript-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Javascript plugin to generate a dynamic payment request to Satispay service",
   "main": "satispay.js",
   "scripts": {
