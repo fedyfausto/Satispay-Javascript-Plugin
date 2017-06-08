@@ -31,7 +31,7 @@ Install
 ---
 Using NPM:
 ```bash
-npm install satispay-javascript-plugin
+npm install satispay-javascript-plugin --save
 
 ```
 OR
