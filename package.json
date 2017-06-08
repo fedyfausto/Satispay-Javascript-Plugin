@@ -1,0 +1,24 @@
+{
+  "name": "satispay-javascript-plugin",
+  "version": "1.0.0",
+  "description": "A Javascript plugin to generate a dynamic payment request to Satispay service",
+  "main": "satispay.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://fedyfausto@bitbucket.org/fedyfausto/satispay-javascript-plugin.git"
+  },
+  "keywords": [
+    "satispay",
+    "javascript",
+    "web",
+    "plugin",
+    "payment",
+    "cordova"
+  ],
+  "author": "Federico Fausto Santoro",
+  "license": "Apache-2.0",
+  "homepage": "https://bitbucket.org/fedyfausto/satispay-javascript-plugin#readme"
+}
