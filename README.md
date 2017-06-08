@@ -11,6 +11,22 @@ The service allows you to add a WebButton, so you can manage the payment from yo
 
 This plugin allows you to generate and open a dynamic window to get the payment from your users (and you can manage this with your classic events!)
 
+In Desktop view:
+
+![alt text](http://i67.tinypic.com/2vjr6eh.png "Desktop view")
+
+In Mobile view:
+
+![alt text](http://i64.tinypic.com/2nh28tl.png "Mobile view")
+
+Compatibility
+---
+The plugin is compatible with the majority of Web browsers and with Cordova / Phonegap applications
+
+Libraries
+---
+The plugin use the original Satispay library to generate a WebButton
+
 Install
 ---
 
@@ -94,3 +110,7 @@ Be aware of Sandbox mode
 ---
 If you want to test the sandbox you will need to accept the self-signed certificate of Satispay staging server, to do this click on this link and accept the certificate:
 https://staging.online.satispay.com/
+
+Any problems or bugs?
+---
+Contact me at fedyfausto@hotmail.com ;)

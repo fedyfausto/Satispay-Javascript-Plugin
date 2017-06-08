@@ -49,7 +49,6 @@
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function() { 
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
-                console.log("loaded");
                 $this.dom_script = document.createElement("script");
                 $this.dom_script.className = "satispay-button";
                 $this.dom_script.setAttribute('src', $this.options.script_url);
@@ -65,6 +64,7 @@
                 },1000);
             }
         }
+        xmlHttp.setRequestHeader("Cache-Control", "max-age=3600");
         xmlHttp.open("GET", $this.options.script_url, true); // true for asynchronous 
         xmlHttp.send(null);
     }
