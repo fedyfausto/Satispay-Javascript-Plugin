@@ -29,7 +29,12 @@ The plugin use the original Satispay library to generate a WebButton
 
 Install
 ---
+Using NPM:
+```bash
+npm install satispay-javascript-plugin
 
+```
+OR
 Download and import the library with SCRIPT tag:
 
 ```html

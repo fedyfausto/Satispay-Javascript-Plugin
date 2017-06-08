@@ -1,0 +1,108 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.10
+3 info using node@v6.9.4
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'D:\\Progetti\\Web\\satispay-javascript-plugin',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\FedericoFausto\AppData\Roaming\npm-cache\satispay-javascript-plugin\1.0.0\package.tgz not in flight; packing
+9 verbose correctMkdir C:\Users\FedericoFausto\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+10 info lifecycle satispay-javascript-plugin@1.0.0~prepublish: satispay-javascript-plugin@1.0.0
+11 silly lifecycle satispay-javascript-plugin@1.0.0~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ 'C:\\Users\\FedericoFausto\\AppData\\Roaming\\npm-cache\\satispay-javascript-plugin\\1.0.0\\package.tgz',
+12 verbose tar pack   'D:\\Progetti\\Web\\satispay-javascript-plugin' ]
+13 verbose tarball C:\Users\FedericoFausto\AppData\Roaming\npm-cache\satispay-javascript-plugin\1.0.0\package.tgz
+14 verbose folder D:\Progetti\Web\satispay-javascript-plugin
+15 verbose addLocalTarball adding from inside cache C:\Users\FedericoFausto\AppData\Roaming\npm-cache\satispay-javascript-plugin\1.0.0\package.tgz
+16 verbose correctMkdir C:\Users\FedericoFausto\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+17 silly cache afterAdd satispay-javascript-plugin@1.0.0
+18 verbose afterAdd C:\Users\FedericoFausto\AppData\Roaming\npm-cache\satispay-javascript-plugin\1.0.0\package\package.json not in flight; writing
+19 verbose correctMkdir C:\Users\FedericoFausto\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+20 verbose afterAdd C:\Users\FedericoFausto\AppData\Roaming\npm-cache\satispay-javascript-plugin\1.0.0\package\package.json written
+21 silly publish { name: 'satispay-javascript-plugin',
+21 silly publish   version: '1.0.0',
+21 silly publish   description: 'A Javascript plugin to generate a dynamic payment request to Satispay service',
+21 silly publish   main: 'satispay.js',
+21 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://fedyfausto@bitbucket.org/fedyfausto/satispay-javascript-plugin.git' },
+21 silly publish   keywords: [ 'satispay', 'javascript', 'web', 'plugin', 'payment', 'cordova' ],
+21 silly publish   author: { name: 'Federico Fausto Santoro' },
+21 silly publish   license: 'Apache-2.0',
+21 silly publish   homepage: 'https://bitbucket.org/fedyfausto/satispay-javascript-plugin#readme',
+21 silly publish   readme: '# Satispay-Javascript-Plugin\nA Javascript plugin to generate a dynamic payment request to Satispay service\n\n---\n\n##### Satispay is a new payment system that allows you to pay stores or friends from your smartphone. \n\nSatispay allows you to perform microtransmissions completely free of charge (under € 10 Euros).\n\nThe service allows you to add a WebButton, so you can manage the payment from your application or website but the WebButton is not dynamic so you can generate this one only refreshing your webpage and only clicking on the default Satispay Button.\n\nThis plugin allows you to generate and open a dynamic window to get the payment from your users (and you can manage this with your classic events!)\n\nIn Desktop view:\n\n![alt text](http://i67.tinypic.com/2vjr6eh.png "Desktop view")\n\nIn Mobile view:\n\n![alt text](http://i64.tinypic.com/2nh28tl.png "Mobile view")\n\nCompatibility\n---\nThe plugin is compatible with the majority of Web browsers and with Cordova / Phonegap applications\n\nLibraries\n---\nThe plugin use the original Satispay library to generate a WebButton\n\nInstall\n---\nUsing NPM:\n```bash\nnpm install satispay-javascript-plugin\n\n```\nOR\nDownload and import the library with SCRIPT tag:\n\n```html\n<script src="/path_to_your_assets/satispay.js"></script>\n\n```\nor minified version:\n```html\n<script src="/path_to_your_assets/satispay.min.js"></script>\n\n```\n\nHow to use\n---\n\nBefore you can use the plugin, you need to initialize a Satispay object\n```Javascript\nvar satispay = new Satispay(options);\n```\nWhere the options are:\n```Javascript\n{\n    key : <String> Your merchant key,\n    webhook: <String> Your server URL hook,\n    sandbox: <Bool> Define if you are in Sandbox mode,\n    [key_sandbox: <String> Your sandbox merchant key]\n}\n```\nAfter initialization of the object you can call the main method to launch the  payment window:\n\n```Javascript\nsatispay.newPayment(amount:<Int>,description:<String>,nameOfCallBackFunction:<String>);\n```\n* amount : The amount of your payment (e.g. use 200 for 2.00 €/$) \n* description : The description for this payment, it will show into the window under the logo\n* nameOfCallBackFunction : The name of your callback function, this will be called after the payment verification\n\nComplete Example\n---\n```Javascript\n//Define the options\nvar options = {\n    key : "YOUR_KEY",\n    webhook: "http://yourserver.yourdomain/webhook",\n    sandbox: false\n}\n\n//Initialize the Satispay object\nvar satispay = new Satispay(options);\n\n//define a callback function\nvar cb = function(){\n    console.log("The coffee has been Paid!");\n}\n\n//Pay one coffee\nsatispay.newPayment(100,"Coffee Test","cb");\n\n//OR with a click event (e.g. Jquery):\n\n$("yourbutton_selector").on("click",function(){\n    satispay.newPayment(100,"Coffee Test","cb");\n});\n\n```\nPreview\n---\nIn Desktop view:\n\n![alt text](http://i67.tinypic.com/2vjr6eh.png "Desktop view")\n\nIn Mobile view:\n\n![alt text](http://i64.tinypic.com/2nh28tl.png "Mobile view")\n\n\nBe aware of Sandbox mode\n---\nIf you want to test the sandbox you will need to accept the self-signed certificate of Satispay staging server, to do this click on this link and accept the certificate:\nhttps://staging.online.satispay.com/\n\nAny problems or bugs?\n---\nContact me at fedyfausto@hotmail.com ;)\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '73d4d66293d6f929c48ddc03a0a4d03d1f64683d',
+21 silly publish   _id: 'satispay-javascript-plugin@1.0.0',
+21 silly publish   _shasum: 'db695217989b2e2a7b9be7846bf50a16febb17bf',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name satispay-javascript-plugin
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'satispay-javascript-plugin',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'satispay-javascript-plugin',
+26 silly mapToRegistry   name: 'satispay-javascript-plugin',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/satispay-javascript-plugin
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading C:\Users\FedericoFausto\AppData\Roaming\npm-cache\satispay-javascript-plugin\1.0.0\package.tgz
+30 verbose request uri https://registry.npmjs.org/satispay-javascript-plugin
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 12:12:09
+33 verbose request using bearer token for auth
+34 verbose request id 4c6b6b00d44012ff
+35 http request PUT https://registry.npmjs.org/satispay-javascript-plugin
+36 http 403 https://registry.npmjs.org/satispay-javascript-plugin
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '95',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Thu, 08 Jun 2017 10:12:11 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-fra1246-FRA',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1496916731.765686,VS0,VE1024',
+37 verbose headers   vary: 'Accept-Encoding' }
+38 verbose request invalidating C:\Users\FedericoFausto\AppData\Roaming\npm-cache\registry.npmjs.org\satispay-javascript-plugin on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: "You cannot publish over the previously published version 1.0.0." : satispay-javascript-plugin
+40 verbose stack     at makeError (C:\Users\FedericoFausto\AppData\Roaming\nvm\v6.9.4\node_modules\npm\node_modules\npm-registry-client\lib\request.js:302:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (C:\Users\FedericoFausto\AppData\Roaming\nvm\v6.9.4\node_modules\npm\node_modules\npm-registry-client\lib\request.js:290:14)
+40 verbose stack     at Request._callback (C:\Users\FedericoFausto\AppData\Roaming\nvm\v6.9.4\node_modules\npm\node_modules\npm-registry-client\lib\request.js:210:14)
+40 verbose stack     at Request.self.callback (C:\Users\FedericoFausto\AppData\Roaming\nvm\v6.9.4\node_modules\npm\node_modules\request\request.js:187:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (C:\Users\FedericoFausto\AppData\Roaming\nvm\v6.9.4\node_modules\npm\node_modules\request\request.js:1048:10)
+40 verbose stack     at emitOne (events.js:96:13)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (C:\Users\FedericoFausto\AppData\Roaming\nvm\v6.9.4\node_modules\npm\node_modules\request\request.js:969:12)
+41 verbose statusCode 403
+42 verbose pkgid satispay-javascript-plugin
+43 verbose cwd D:\Progetti\Web\satispay-javascript-plugin
+44 error Windows_NT 10.0.14393
+45 error argv "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+46 error node v6.9.4
+47 error npm  v3.10.10
+48 error code E403
+49 error "You cannot publish over the previously published version 1.0.0." : satispay-javascript-plugin
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]
